@@ -15,8 +15,23 @@ console.log(`The length of the response is ${numericLength}.`);
 const data:unknown = 'chai or code'
 const strData:string = data as string
 
-type role = 'admin' | 'user'
+type Role = 'admin' | 'user' | 'guest';
 
-function redirectBasedOnRole(params:role){
+function redirectBasedOnRole(role:Role):void{
+    if(role === 'admin'){
+        console.log('Redirecting to admin dashboard.');
+        return;
+    } 
+    if(role === 'user'){
+        console.log('Redirecting to user homepage.');
+        return;
+    }
+    role;
 
+}
+
+function nerverReturns():never{
+    while(true){
+        console.log('This function never returns.');
+    }
 }
